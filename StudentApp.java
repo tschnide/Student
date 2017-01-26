@@ -10,20 +10,12 @@ import java.util.Scanner;
  */
 public class StudentApp
 {
+
+    private ArrayList<Student> al = new ArrayList<>();
+
     public static void main(String[] args)
     {
-        // Create three Student objects and add them to the ArrayList.
-        //This is required by the assignment.
 
-        Student mike = new Student("Mike", "Bowen", "Art", 2.0);
-        Student sue = new Student("Sue", "McGuire", "Science", 3.0);
-        Student jon = new Student("John", "Schnider", "Architecture", 3.6);
-
-        ArrayList<Student> al = new ArrayList();
-        al.add(mike);
-        al.add(sue);
-        al.add(jon);
-        System.out.println(jon.getSNumber());
 
         //  ExitCommand takes a (y/n) option after running the first time.
         String exitCommand = "n";
@@ -57,23 +49,9 @@ public class StudentApp
 
                 case 1:
                 {
-                    System.out.print("Enter the student's first name: ");
-                    String fname = menuInput.nextLine();
-                    System.out.print("Enter the sudent's last name: ");
-                    String lname = menuInput.nextLine();
-                    System.out.print("Enter the student's major: ");
-                    String maj = menuInput.nextLine();
-                    System.out.print("Enter the student's gpa: ");
-                    double gpa = menuInput.nextDouble();
-                    System.out.println("\n");
-
-                    //  Add the variables as parameters to a Student object in al (ArrayList)
-                    al.add(new Student(fname, lname, maj, gpa));
-
-                    //  Ouputs the toString() method of the most recent Student object
-                    System.out.println("Your record was added as: " + al.get(al.size() - 1));
-                    System.out.println("\n");
+                    System.out.println(createStudent());
                     break;
+
                 }
 
                 case 2:
@@ -155,6 +133,41 @@ public class StudentApp
             }
         }
         while (exitCommand == "n");
+    }
+
+    public void initializeStudents()
+    {
+        Student mike = new Student("Mike", "Bowen", "Art", 2.0);
+        Student sue = new Student("Sue", "McGuire", "Science", 3.0);
+        Student jon = new Student("John", "Schnider", "Architecture", 3.6);
+
+        al.add(mike);
+        al.add(sue);
+        al.add(jon);
+    }
+
+    public String createStudent()
+    {
+        Scanner menuInput = new Scanner(System.in);
+        String stringInput;
+        Double gpaInput;
+
+        System.out.print("Enter the student's first name: ");
+        String fname = menuInput.nextLine();
+        System.out.print("Enter the sudent's last name: ");
+        String lname = menuInput.nextLine();
+        System.out.print("Enter the student's major: ");
+        String maj = menuInput.nextLine();
+        System.out.print("Enter the student's gpa: ");
+        double gpa = menuInput.nextDouble();
+        System.out.println("\n");
+
+        //  Add the variables as parameters to a Student object in al (ArrayList)
+        al.add(new Student(fname, lname, maj, gpa));
+
+        //  Outputs the toString() method of the most recent Student object
+        return  "Your record was added as: " + al.get(al.size() - 1);
+
     }
 
 }
