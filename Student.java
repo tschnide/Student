@@ -6,24 +6,9 @@
  */
 public class Student
 {
-    /**
-     * String containing first name
-     */
     private String firstName;
-
-    /**
-     * String containing last name
-     */
     private String lastName;
-
-    /**
-     *  int containing the student number
-     */
     private int sNumber;
-
-    /**
-     *
-     */
     private String major;
     private double gpa;
     private static int count = 0;
